@@ -16,7 +16,6 @@ export class HelpCommand implements Command {
     );
 
     if (commandContext.args.length === 0) {
-      // No command specified, give the user a list of all commands they can use.
       const commandNames = allowedCommands.map(
         (command) => command.commandNames[0],
       );
