@@ -10,13 +10,12 @@ export class RollCommand implements Command {
 
   async run(parsedUserCommand: CommandContext): Promise<void> {
     // TODO: add different dice
-    // TODO: add color styling for nat 1 or 100
 
     console.log(parsedUserCommand);
 
     let result = this.getDiceRoll();
 
-    await parsedUserCommand.originalMessage.channel.send(`You rolled a ${result}`);
+    await parsedUserCommand.originalMessage.channel.send(`You rolled **${result}**`);
   }
 
   getDiceRoll(): Number {
