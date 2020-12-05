@@ -19,6 +19,7 @@ export class HelpCommand implements Command {
       const commandNames = allowedCommands.map(
         (command) => command.commandNames[0],
       );
+      // TODO: Make this a fancy embed
       await commandContext.originalMessage.reply(
         `here is a list of commands you can run: ${commandNames.join(
           ' ',

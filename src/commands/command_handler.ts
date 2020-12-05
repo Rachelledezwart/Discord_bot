@@ -6,6 +6,7 @@ import { reactor } from '../reactions/reactor';
 
 import { GreetCommand } from './greet';
 import { RollCommand } from './roll';
+import { ItemsCommand } from './items';
 
 export class CommandHandler {
     private commands: Command[];
@@ -17,6 +18,7 @@ export class CommandHandler {
             // TODO: Add more classes
             GreetCommand,
             RollCommand,
+            ItemsCommand,
         ];
 
         this.commands = commandClasses.map((CommandClass) => new CommandClass());

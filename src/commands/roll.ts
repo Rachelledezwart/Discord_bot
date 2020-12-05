@@ -10,7 +10,8 @@ export class RollCommand implements Command {
 
     async run(parsedUserCommand: CommandContext): Promise<void> {
         try {
-            // TODO: add different dice
+            // TODO: More user input checks...
+            // TODO: Refactor this code...
 
             let die = 100;
             let rolls = 1;
