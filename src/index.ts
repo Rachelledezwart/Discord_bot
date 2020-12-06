@@ -3,7 +3,6 @@ import { CommandHandler } from './commands/command_handler'
 require('dotenv').config()
 
 function validateConfig(botConf: string) {
-    console.log(botConf);
     if (!botConf) {
         throw new Error('You need to specify your Discord bot token!');
     }
