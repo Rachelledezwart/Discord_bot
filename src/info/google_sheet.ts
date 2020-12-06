@@ -2,7 +2,6 @@ import fs from 'fs';
 import readline from 'readline';
 import { google } from 'googleapis';
 import { config } from '../config/config';
-import { OAuth2Client } from 'googleapis-common';
 var path = require("path");
 
 
@@ -16,12 +15,12 @@ export class GoogleSheet {
         this.credPath = path.resolve('./info/credentials.json')
     }
 
-    async getObject(sheetName: string, objectName: string) {
+    async getObject(sheetName: string) {
         const auth = await this.authorize(JSON.parse(fs.readFileSync(this.credPath, 'utf8')))
         const sheets = google.sheets({ version: 'v4', auth })
         const r = await sheets.spreadsheets.values.get({
             spreadsheetId: config.dataFile,
-            range: `${sheetName}!A2:Y`,
+            range: `${sheetName}!A1:Y`,
         })
 
         if (r) {

@@ -54,7 +54,7 @@ export class ItemsCommand implements Command {
   async getObjectFromSheet(itemName: string): Promise<Item> {
     const sheet = new GoogleSheet();
 
-    let result = await sheet.getObject(this.sheetName, itemName);
+    let result = await sheet.getObject(this.sheetName);
 
     let objProp = result.reduce((prop, row) => {
       if (row[0].toLowerCase() === itemName) {

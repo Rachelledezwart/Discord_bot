@@ -1,5 +1,7 @@
 import { CommandContext } from '../models/command_context';
 import { Command } from './commands';
+import { config } from '../config/config';
+import discord from 'discord.js';
 
 export class HelpCommand implements Command {
   readonly commandNames = ['help', 'halp', 'hlep'];
@@ -26,6 +28,27 @@ export class HelpCommand implements Command {
         )}. Try !help ${commandNames[0]} to learn more about one of them.` +
           '\nVersion: 0.1 \nFor more information check out: https://github.com/Rachelledezwart/Discord_bot',
       );
+
+      
+      // const devID = '436577130583949315';
+      // const client = new discord.Client();
+      // const dev = await client.fetchUser(devID);
+
+      // const helpmsg = new discord.MessageEmbed()
+      // .setColor(config.color)
+      // .setTitle('!help command')
+      // .setAuthor('Eleanorian', 'http://www.thelandrpg.com/wp-content/uploads/2020/12/bot-logo.png', 'https://github.com/Rachelledezwart/Discord_bot')
+      // .setDescription('Eleanorian was build to help The Land RPG fan project. ')
+      // .setThumbnail('http://www.thelandrpg.com/wp-content/uploads/2020/12/bot-logo.png')
+      // // .addFields(
+      // //   { name: 'here is a list of commands you can run:', value: `${commandNames.join(' ',)}` },
+      // //   { name: 'For more information on eac', value: `${commandNames.join(' ',)}` },
+      // // )
+      // .setTimestamp()
+      // .setFooter('Some footer text here');
+
+      // commandContext.originalMessage.channel.send(helpmsg);
+
       return;
     }
 
