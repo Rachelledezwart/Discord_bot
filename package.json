@@ -7,6 +7,10 @@
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "engines": {
+    "node": "12.14.1",
+    "npm": "6.13.4"
+  },
   "repository": {
     "type": "git",
     "url": "github.com/Rachelledezwart/Discord_bot"
