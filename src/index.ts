@@ -1,16 +1,17 @@
 import discord, { Message } from 'discord.js'
 import { CommandHandler } from './commands/command_handler'
-import { BotConfig, config } from './config/config'
+require('dotenv').config()
 
-function validateConfig(botConf: BotConfig) {
-    if (!botConf.token) {
+function validateConfig(botConf: string) {
+    console.log(botConf);
+    if (!botConf) {
         throw new Error('You need to specify your Discord bot token!');
     }
 }
 
-validateConfig(config);
+validateConfig(process.env.TOKEN);
 
-const commandHandler = new CommandHandler(config.prefix);
+const commandHandler = new CommandHandler(process.env.PREFIX);
 
 const client = new discord.Client();
 
@@ -21,7 +22,7 @@ client.on('ready', () => {
 client.on('message', async message => {
     // Check if the message was sent in the channel with the specified id.
     // NOTE, this defines the message variable that is going to be used later.
-    if(message.channel.id === '784496413752295479'){
+    if(message.channel.id === process.env.CHANNELID){
         // let test = await message.channel.messages.fetch();
         console.log('test');
         setTimeout(() => {
@@ -38,4 +39,4 @@ client.on('error', (e) => {
     console.error('Discord client error!', e);
 });
 
-client.login(config.token);
+client.login(process.env.TOKEN);

@@ -1,6 +1,5 @@
 import { CommandContext } from '../models/command_context';
 import { Command } from './commands';
-import { config } from '../config/config';
 import discord from 'discord.js';
 
 export class HelpCommand implements Command {
@@ -29,13 +28,12 @@ export class HelpCommand implements Command {
           '\nVersion: 0.1 \nFor more information check out: https://github.com/Rachelledezwart/Discord_bot',
       );
 
-      
       // const devID = '436577130583949315';
       // const client = new discord.Client();
       // const dev = await client.fetchUser(devID);
 
       // const helpmsg = new discord.MessageEmbed()
-      // .setColor(config.color)
+      // .setColor(process.env.COLOR)
       // .setTitle('!help command')
       // .setAuthor('Eleanorian', 'http://www.thelandrpg.com/wp-content/uploads/2020/12/bot-logo.png', 'https://github.com/Rachelledezwart/Discord_bot')
       // .setDescription('Eleanorian was build to help The Land RPG fan project. ')

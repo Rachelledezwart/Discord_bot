@@ -1,6 +1,5 @@
 import { CommandContext } from '../models/command_context';
 import { Command } from './commands';
-import { config } from '../config/config';
 import { GoogleSheet } from '../info/google_sheet'
 import discord from 'discord.js'
 
@@ -78,9 +77,9 @@ export class ItemsCommand implements Command {
 
   async embeddedPost(item: Item): Promise<any> {
     const exampleEmbed = new discord.MessageEmbed()
-      .setColor(config.color)
+      .setColor(process.env.COLOR)
       .setTitle(item.name)
-      .setAuthor(config.name, config.logo, config.website)
+      .setAuthor(process.env.NAME, process.env.LOGO, process.env.WEBSITE)
       .setDescription(item.description)
       .addFields(
         { name: 'Type', value: item.type, inline: true },

@@ -1,7 +1,6 @@
 import fs from 'fs';
 import readline from 'readline';
 import { google } from 'googleapis';
-import { config } from '../config/config';
 var path = require("path");
 
 
@@ -19,7 +18,7 @@ export class GoogleSheet {
         const auth = await this.authorize(JSON.parse(fs.readFileSync(this.credPath, 'utf8')))
         const sheets = google.sheets({ version: 'v4', auth })
         const r = await sheets.spreadsheets.values.get({
-            spreadsheetId: config.dataFile,
+            spreadsheetId: process.env.DATAFILE,
             range: `${sheetName}!A1:Y`,
         })
 
